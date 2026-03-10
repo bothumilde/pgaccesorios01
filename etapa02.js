@@ -13,7 +13,7 @@ async function renderEtapa02() {
             <h2>📦 Entrega de Guía - Etapa 02</h2>
 
             <div class="search-section">
-                <input type="number" id="inputGuiaId" placeholder="ID de Guía..." min="1">
+                <input type="number" id="inputGuiaId" placeholder="Consultar ID de Guía" min="1">
                 <button id="btnBuscar" class="btn-search" onclick="consultarGuia()">BUSCAR</button>
             </div>
 
@@ -44,7 +44,6 @@ async function renderEtapa02() {
         <div id="loading-overlay">Cargando...</div>
 
         <script>
-            // --- CONFIGURACIÓN DE FECHA (ZONA PERÚ) ---
             const dateOptions = { 
                 day: '2-digit', 
                 month: '2-digit', 

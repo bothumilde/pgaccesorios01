@@ -142,7 +142,7 @@ app.get('/api/consultar-guia/:id', async (req, res) => {
         // Consultar cabecera
         const { data: cabecera, error: cabError } = await supabase
             .from('guias')
-            .select('fecha, observaciones, etapa02, observaciones_et02, etapa03')
+            .select('fecha, observaciones, fecha_et02, etapa02, observaciones_et02, etapa03')
             .eq('id', guiaId)
             .single();
 
