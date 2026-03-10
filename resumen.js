@@ -20,7 +20,8 @@ async function renderResumen(supabase) {
         year: 'numeric', 
         hour: '2-digit', 
         minute: '2-digit', 
-        second: '2-digit' 
+        second: '2-digit',
+        timeZone: 'America/Lima'
     };
 
     return `
@@ -57,7 +58,7 @@ async function renderResumen(supabase) {
                         <div class="guia-header">
                             <span class="guia-id">Guía #${guia.id}</span>
                             <span class="guia-fecha">
-                                ${new Date(guia.fecha).toLocaleString('es-ES', dateOptions)}
+                                ${new Date(guia.fecha).toLocaleString('es-PE', dateOptions)}
                             </span>
                         </div>
                         <div class="progress-container">
@@ -70,7 +71,7 @@ async function renderResumen(supabase) {
                             
                             ${guia.fecha_et02 ? `
                                 <p><strong>Fecha Etapa 02:</strong> 
-                                    ${new Date(guia.fecha_et02).toLocaleString('es-ES', dateOptions)}
+                                    ${new Date(guia.fecha_et02).toLocaleString('es-PE', dateOptions)}
                                 </p>` : ''}     
                                 
                             ${guia.observaciones_et02 ? `<p><strong>Observaciones Etapa 02:</strong> ${guia.observaciones_et02}</p>` : ''}
