@@ -43,22 +43,41 @@ async function renderResumen(supabase) {
                     }
                     return `
                         <div class="guia-item">
-                            <div class="guia-header">
-                                <span class="guia-id">Guía #${guia.id}</span>
-                                <span class="guia-fecha">${new Date(guia.fecha).toLocaleDateString()}</span>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: ${progress}%; background-color: ${color};"></div>
-                            </div>
-                            <div class="progress-text">${statusText} (${progress}%)</div>
-                            <div class="guia-details">
-                                <p><strong>Observaciones:</strong> ${guia.observaciones || 'Sin observaciones'}</p>
-                                ${guia.fecha_et02 ? `<p><strong>Fecha Etapa 02:</strong> ${new Date(guia.fecha_et02).toLocaleDateString()}</p>` : ''}
-                                ${guia.observaciones_et02 ? `<p><strong>Observaciones Etapa 02:</strong> ${guia.observaciones_et02}</p>` : ''}
-                            </div>
+                        <div class="guia-header">
+                            <span class="guia-id">Guía #${guia.id}</span>
+                            <span class="guia-fecha">
+                                ${new Date(guia.fecha).toLocaleString('es-ES', { 
+                                    day: '2-digit', 
+                                    month: '2-digit', 
+                                    year: 'numeric', 
+                                    hour: '2-digit', 
+                                    minute: '2-digit', 
+                                    second: '2-digit' 
+                                })}
+                            </span>
                         </div>
-                    `;
-                }).join('')}
+            <div class="progress-container">
+                <div class="progress-bar" style="width: ${progress}%; background-color: ${color};"></div>
+            </div>
+            <div class="progress-text">${statusText} (${progress}%)</div>
+                div class="guia-details">
+                <p><strong>Observaciones:</strong> ${guia.observaciones || 'Sin observaciones'}</p>
+                    ${guia.fecha_et02 ? `
+                        <p><strong>Fecha Etapa 02:</strong> 
+                            ${new Date(guia.fecha_et02).toLocaleString('es-ES', { 
+                                day: '2-digit', 
+                                month: '2-digit', 
+                                year: 'numeric', 
+                                hour: '2-digit', 
+                                minute: '2-digit', 
+                                second: '2-digit' 
+                            })}
+                        </p>` : ''}     
+                    ${guia.observaciones_et02 ? `<p><strong>Observaciones Etapa 02:</strong> ${guia.observaciones_et02}</p>` : ''}
+                </div>
+            </div>
+            `;
+            }).join('')}
             </div>
             <a href="/" class="btn-back">← Volver al Panel Principal</a>
         </div>
