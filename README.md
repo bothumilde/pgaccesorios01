@@ -6,7 +6,7 @@
 
 ## 📋 Contenido
 
-- [Features](#features)
+- [Características](#features)
 
 ## ℹ️ Información básica
 
