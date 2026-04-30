@@ -6,7 +6,7 @@ async function renderResumen(supabase) {
             .from('guias')
             .select('id, fecha, observaciones, fecha_et02, observaciones_et02, etapa01, etapa02')
             .order('fecha', { ascending: false })
-            .limit(10);
+            .limit(100);
         
         if (error) throw error;
         guias = data || [];
